@@ -78,3 +78,6 @@ footer{text-align:center;color:var(--mu);font-size:13px;padding:30px 16px}.strip
 
 /* Compact header while keeping the larger brand mark */
 .public-nav{min-height:70px;padding-top:5px;padding-bottom:5px;align-items:center}.public-brand{display:flex;align-items:center;line-height:1}.public-brand img{width:90px;height:58px;object-fit:contain;display:block}@media(max-width:700px){.public-nav{min-height:66px;padding:4px 16px;gap:8px}.public-brand img{width:90px;height:56px}.public-menu-toggle,.public-actions .btn.p{padding-top:7px;padding-bottom:7px}}
+
+/* Keep the public desktop navigation visible while scrolling */
+@media(min-width:701px){.public-nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.97);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 1px 5px #10202c0d}}
