@@ -18,8 +18,9 @@
     return data.user;
   }
   async function signUp(email, password, displayName) {
+    const redirectTo = window.location.origin + '/';
     const { data, error } = await init().auth.signUp({
-      email, password, options: { data: { display_name: displayName || '' } }
+      email, password, options: { data: { display_name: displayName || '' }, emailRedirectTo: redirectTo }
     });
     if (error) throw error;
     return data;
