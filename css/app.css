@@ -75,3 +75,6 @@ footer{text-align:center;color:var(--mu);font-size:13px;padding:30px 16px}.strip
 .public-brand{gap:0}.public-brand img{height:36px;width:36px}@media(max-width:700px){.public-brand img{height:36px;width:36px}}
 
 .public-brand img{width:90px;height:90px}@media(max-width:700px){.public-brand img{width:90px;height:90px}}
+
+/* Compact header while keeping the larger brand mark */
+.public-nav{min-height:70px;padding-top:5px;padding-bottom:5px;align-items:center}.public-brand{display:flex;align-items:center;line-height:1}.public-brand img{width:90px;height:58px;object-fit:contain;display:block}@media(max-width:700px){.public-nav{min-height:66px;padding:4px 16px;gap:8px}.public-brand img{width:90px;height:56px}.public-menu-toggle,.public-actions .btn.p{padding-top:7px;padding-bottom:7px}}
