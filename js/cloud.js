@@ -2,7 +2,7 @@
    Existing local storage remains the offline source of truth. */
 (() => {
   const CFG = window.EBUKS_CLOUD_CONFIG || {};
-  let client = null, organizationId = localStorage.getItem('ebuks_org_id') || null;
+  let client = null, organizationId = localStorage.getItem('ebuks_org_id') || null, authenticated = false, authReady = false;
   const ready = () => !!(window.supabase && CFG.url && CFG.publishableKey);
   const init = () => {
     if (!ready()) throw new Error('Cloud service is not configured.');
@@ -11,7 +11,7 @@
     });
     return client;
   };
-  async function currentUser() {
+  async function bootstrap() { const sb=init(); const {data,error}=await sb.auth.getSession(); if(error) throw error; authenticated=!!data.session; authReady=true; sb.auth.onAuthStateChange((_event,session)=>{ authenticated=!!session; authReady=true; if(!authenticated){organizationId=null;localStorage.removeItem('ebuks_org_id');location.hash='#home';} if(typeof render==='function')render(); }); return data.session; }\n  async function currentUser() {
     const { data, error } = await init().auth.getUser();
     if (error) throw error;
     return data.user;
