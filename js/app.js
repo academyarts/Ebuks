@@ -1,0 +1,6 @@
+/* app.js
+   Router, first render, offline support registration. */
+function render(){const r=R();$('#app').innerHTML=ed?editor():vw&&T[r]?viewer():r=='settings'?settings():r=='clients'?clientsPg():r=='products'?productsPg():r=='scan'?scanPg():T[r]?book(r):home();if(ed)its();fillImgs();initSlider();scrollTo(0,0)}
+addEventListener('hashchange',()=>{ed=null;vw=null;cf=null;cv=null;pf=null;imp=null;pasteOpen=false;rc=null;bigId=null;render()});render();
+initStorage();
+if('serviceWorker' in navigator&&location.protocol.startsWith('http'))addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
