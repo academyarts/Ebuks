@@ -11,7 +11,8 @@
     });
     return client;
   };
-  async function bootstrap() { const sb=init(); const {data,error}=await sb.auth.getSession(); if(error) throw error; authenticated=!!data.session; authReady=true; sb.auth.onAuthStateChange((_event,session)=>{ authenticated=!!session; authReady=true; if(!authenticated){organizationId=null;localStorage.removeItem('ebuks_org_id');location.hash='#home';} if(typeof render==='function')render(); }); return data.session; }\n  async function currentUser() {
+  async function bootstrap() { const sb=init(); const {data,error}=await sb.auth.getSession(); if(error) throw error; authenticated=!!data.session; authReady=true; sb.auth.onAuthStateChange((_event,session)=>{ authenticated=!!session; authReady=true; if(!authenticated){organizationId=null;localStorage.removeItem('ebuks_org_id');location.hash='#home';} if(typeof render==='function')render(); }); return data.session; }
+  async function currentUser() {
     const { data, error } = await init().auth.getUser();
     if (error) throw error;
     return data.user;
